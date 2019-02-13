@@ -1,0 +1,38 @@
+---
+#title: "miniproj1"
+author: "Emma Vejcik, Hannah Wang, Fay Adan"
+#date: "2/11/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE)
+#echo = FALSE (for less data shown)
+```
+
+```{r, include = FALSE}
+?airquality
+library(tidyverse)
+```
+
+```{r}
+plot1 <- ggplot(airquality, aes(x = Day, y = Ozone, color = Temp))+
+  geom_point(alpha = 0.7, size = 5)+
+  #scale_color_continuous(breaks = c())
+  facet_wrap(~Month, ncol = 5)+
+  labs(x = "Day of Month")+
+  labs(y = "Ozone(ppb)") +
+  labs(title = "New York Air Quality Measurements")+
+  labs(subtitle = "Daily air quality measurements in New York, May to September 1973.")+
+  labs(caption = "Source: New York State Department of Conservation and the National Weather Service")+
+  scale_color_continuous(low = "blue", high = "red")
+  
+plot1
+```
+
+
+Intro: This is a graph of the quality of New York air through the months May to September, 1973. It plots points based on temperature, date, and ozone. Temperature is measured in Fahrenheit, date is plotted by month from 1300 to 1500 hours, and ozone is parts per billion oxygen atoms. This data comes from the New York State Department of Conservation and National Weather Service. Warmer colors such as red indicate higher temperatures and cooler temperatures, such as blue, indicate cooler temperatures. The graph is faceted so that one can differentiate between the various months. Points are used to show the individuality of each day and the absence of continuity between each day, despite the clear correlation of variables over a longer period of time.
+
+
+Caption: This graph shows a positive correlation between ozone and temperature; as temperature rises, the range of the ozone parts also increases, indicating that higher temperatures over a long period of time are associated with higher ozone levels. 
+
